@@ -1,0 +1,343 @@
+<div id="servicesFormContainer">
+  <div class="m-portlet m-portlet--tab">
+    <h3>إضافة خدمة رئيسية</h3>
+    <form (ngSubmit)="onSubmitMainService()" #mainService="ngForm" class="m-form m-form--fit m-form--label-align-right">
+      <div class="m-portlet__body update-technical-form">
+        <div class="form-group m-form__group">
+          <label> إسم الخدمة <span class="important-star">*</span></label>
+          <div class="m-input-icon m-input-icon--left m-input-icon--right">
+            <!-- [ngModel]="editMode ? updatedData.name : ''" -->
+            <input type="text" required id="mainServiceName" ngModel name="name" class="form-control m-input m-input--pill m-input--air" placeholder="إسم الخدمة" #name="ngModel" />
+            <span class="m-input-icon__icon m-input-icon__icon--right">
+              <span> <i class="la la-user"></i> </span>
+            </span>
+          </div>
+          <div *ngIf="mainService.valid" class="form-control-feedback m--font-success state-valid state">إدخال صحيح</div>
+          <div *ngIf="mainService.invalid && mainService.touched" class="form-control-feedback m--font-danger state-wrong state">من فضلك ادخل الإسم بشكل صحيح</div>
+        </div>
+        <!-- Start Active -->
+        <div class="form-group m-form__group">
+          <label>التفعيل</label>
+          <div class="m-input-icon m-input-icon--left m-input-icon--right">
+            <!-- Start Toggle -->
+            <span class="m-switch m-switch--outline m-switch--icon m-switch--success">
+              <label>
+                <!-- [(ngModel)]="editMode ? updatedData.active : binding" -->
+                <input [ngModel]="bindings" type="checkbox" value="1" name="active" #active="ngModel" /> <span></span>
+              </label>
+            </span>
+            <!-- End Toggle -->
+          </div>
+        </div>
+        <!-- End Active -->
+        <!-- Start Submit -->
+        <div class="m-portlet__foot m-portlet__foot--fit">
+          <div class="m-form__actions">
+            <!-- *ngIf="!editMode" -->
+            <button [disabled]="mainService.invalid" type="submit" class="btn btn-success" style="margin-left: 10px;">حفظ</button>
+            <!--  -->
+            <button type="reset" class="btn btn-secondary">إلغاء</button>
+            <!-- <button type="button" (click)="onUpdate()" class="btn btn-success" style="margin-left: 10px;" *ngIf="editMode">حفظ التعديلات</button>
+            <button type="button" (click)="onCloseEdit()" class="btn btn-secondary" *ngIf="editMode">إغلاق</button> -->
+          </div>
+        </div>
+        <!-- End Submit -->
+      </div>
+    </form>
+  </div>
+  <!-- Start Add Sub Service -->
+  <div class="m-portlet m-portlet--tab">
+    <h3>إضافة خدمة فرعية</h3>
+    <form (ngSubmit)="onSubmitSubService()" #subService="ngForm" class="m-form m-form--fit m-form--label-align-right">
+      <div class="m-portlet__body update-technical-form">
+        <div class="form-group m-form__group">
+          <label> إسم الخدمة <span class="important-star">*</span></label>
+          <div class="m-input-icon m-input-icon--left m-input-icon--right">
+            <!-- [ngModel]="editMode ? updatedData.name : ''" -->
+            <input type="text" required id="username" ngModel name="name" class="form-control m-input m-input--pill m-input--air" placeholder="إسم الخدمة" #name="ngModel" />
+
+            <span class="m-input-icon__icon m-input-icon__icon--right">
+              <span> <i class="la la-user"></i> </span>
+            </span>
+          </div>
+          <div *ngIf="name.valid" class="form-control-feedback m--font-success state-valid state">إدخال صحيح</div>
+          <div *ngIf="name.invalid && name.touched" class="form-control-feedback m--font-danger state-wrong state">من فضلك ادخل الإسم بشكل صحيح</div>
+        </div>
+        <!-- Start Select search -->
+        <div class="form-group m-form__group">
+          <label> الخدمة الرئيسية <span class="important-star">*</span> </label> <br *ngIf="!editResource" />
+          <!-- <label *ngIf="editMode && !editResource">{{ updatedData.source.name }}</label> <br /> -->
+          <!-- *ngIf="editMode"  -->
+          <!-- <label style="margin:0;display: none">
+            <span> تعديل الخدمة ؟</span> <br />
+            // Start Toggle
+            <span
+              class="m-switch m-switch--outline m-switch--icon m-switch--success"
+              style="display:flex;margin-top: 15px;
+                margin-bottom: 10px;"
+            >
+              <label style="margin:0">
+                <input [(ngModel)]="editResource != editResource" type="checkbox" name="editResource" /> <span></span>
+              </label>
+            </span>
+            // End Toggle
+
+          </label> -->
+          <!-- *ngIf="editResource || !editMode" -->
+
+          <div class="m-input-icon m-input-icon--left m-input-icon--right">
+            <input type="hidden" name="select" #select="ngModel" [(ngModel)]="selectValidation" required />
+            <ngx-select-dropdown [config]="serviceConfig" [options]="serviceArray" (change)="serviceChanged($event)" class="form-control m-input m-input--pill m-input--air ngx-select">
+            </ngx-select-dropdown>
+            <span class="m-input-icon__icon m-input-icon__icon--right">
+              <span> <i class="la la-gear"></i> </span>
+            </span>
+          </div>
+        </div>
+        <!-- End Select search -->
+        <!-- Start Active -->
+        <div class="form-group m-form__group">
+          <label>التفعيل</label>
+          <div class="m-input-icon m-input-icon--left m-input-icon--right">
+            <!-- Start Toggle -->
+            <span class="m-switch m-switch--outline m-switch--icon m-switch--success">
+              <label>
+                <!-- [(ngModel)]="editMode ? updatedData.active : binding" -->
+                <input [(ngModel)]="binding" type="checkbox" value="1" name="active" #active="ngModel" /> <span></span>
+              </label>
+            </span>
+            <!-- End Toggle -->
+          </div>
+        </div>
+        <!-- End Active -->
+        <!-- Start Submit -->
+        <div class="m-portlet__foot m-portlet__foot--fit">
+          <div class="m-form__actions">
+            <button [disabled]="subService.invalid" *ngIf="!editMode" type="submit" class="btn btn-success" style="margin-left: 10px;">حفظ</button>
+            <button *ngIf="!editMode" type="reset" class="btn btn-secondary">إلغاء</button>
+
+            <!-- <button type="button" (click)="onUpdate()" class="btn btn-success" style="margin-left: 10px;" *ngIf="editMode">حفظ التعديلات</button>
+            <button type="button" (click)="onCloseEdit()" class="btn btn-secondary" *ngIf="editMode">إغلاق</button> -->
+          </div>
+        </div>
+        <!-- End Submit -->
+      </div>
+    </form>
+  </div>
+  <!-- End Add Sub Service -->
+</div>
+<hr />
+<!-- Start Table List -->
+<div class="m-scrollable mCustomScrollbar _mCS_5 mCS-autoHide _mCS_2">
+  <!-- Start Resources Table -->
+  <!-- begin: Datatable -->
+  <!-- <div *ngIf="!anyTechnicalExist">لا توجد بيانات للعرض</div> -->
+  <!-- *ngIf="anyTechnicalExist" -->
+  <div class="m-datatable m-datatable--default m-datatable--brand m-datatable--loaded" id="all-search-table">
+    <!-- *ngIf=" emptyArray" -->
+    <table class="m-datatable__table search-table" id="html_table" width="100%">
+      <thead class="m-datatable__head table-head">
+        <tr class="m-datatable__row">
+          <th class="m-datatable__cell m-datatable__cell--sort"><span>الخدمات الفرعية</span></th>
+          <th class="m-datatable__cell m-datatable__cell--sort"><span>المسلسل</span></th>
+          <th class="m-datatable__cell m-datatable__cell--sort"><span>إسم الخدمة</span></th>
+          <th class="m-datatable__cell m-datatable__cell--sort"><span>حالة التفعيل</span></th>
+          <th class="m-datatable__cell m-datatable__cell--sort"><span>تعديل الخدمة</span></th>
+          <th class="m-datatable__cell m-datatable__cell--sort"><span>حذف الخدمة</span></th>
+        </tr>
+      </thead>
+      <tbody class="m-datatable__body" *ngFor="let service of serviceArray">
+        <tr class="m-datatable__row">
+          <td class="m-datatable__cell openSubService">
+            <span (click)="toggleSubMenu(service.id)" ><i (click)="rotatePlus(service.id)" id="plus{{ service.id }}" class="la la-plus plusSlide"></i></span>
+          </td>
+          <td class="m-datatable__cell">
+            <span>{{ service.id }}</span>
+          </td>
+          <td class="m-datatable__cell">
+            <span>{{ service.name }}</span>
+          </td>
+          <td class="m-datatable__cell active-span">
+            <span> <span *ngIf="service.active == 1" class="m-badge  m-badge--success m-badge--wide">مفعل</span> </span>
+            <span *ngIf="service.active == 0"> <span class="m-badge  m-badge--danger m-badge--wide">غير مفعل</span> </span>
+          </td>
+          <td class="m-datatable__cell">
+            <span><button type="button" class="btn btn-success update-button" (click)="updateService(service.id, service.name, service.active)">تعديل الخدمة</button></span>
+          </td>
+          <td class="m-datatable__cell">
+            <span><button type="button" class="btn btn-danger" (click)="deleteService(service.id)">حذف الخدمة</button></span>
+          </td>
+        </tr>
+        <!-- Sub Service Row -->
+        <div class="SubServiceContainer" id="{{ service.id }}">
+          <tr class="m-datatable__row">
+            <th class="m-datatable__cell m-datatable__cell--sort"><span>المسلسل</span></th>
+            <th class="m-datatable__cell m-datatable__cell--sort"><span>إسم الخدمة</span></th>
+            <th class="m-datatable__cell m-datatable__cell--sort"><span>حالة التفعيل</span></th>
+            <th class="m-datatable__cell m-datatable__cell--sort"><span>تعديل الخدمة</span></th>
+            <th class="m-datatable__cell m-datatable__cell--sort"><span>حذف الخدمة</span></th>
+          </tr>
+          <tr class="m-datatable__row subServiceRow" *ngFor="let subService of service.children">
+            <td class="m-datatable__cell">
+              <span>{{ subService.id }}</span>
+            </td>
+            <td class="m-datatable__cell">
+              <span>{{ subService.name }}</span>
+            </td>
+            <td class="m-datatable__cell active-span">
+              <span> <span *ngIf="subService.active == 1" class="m-badge  m-badge--success m-badge--wide">مفعل</span> </span>
+              <span *ngIf="subService.active == 0"> <span class="m-badge  m-badge--danger m-badge--wide">غير مفعل</span> </span>
+            </td>
+            <td class="m-datatable__cell">
+              <span><button type="button" class="btn btn-success update-button" (click)="updateSubService(service, subService)">تعديل الخدمة</button></span>
+            </td>
+            <td class="m-datatable__cell">
+              <span><button type="button" class="btn btn-danger" (click)="deleteService(subService.id)">حذف الخدمة</button></span>
+            </td>
+          </tr>
+        </div>
+
+        <!-- Sub Service Row -->
+      </tbody>
+    </table>
+  </div>
+  <!-- end: Datatable -->
+  <!-- End Resources Table -->
+</div>
+<!-- End Table List -->
+<!--############################### Start Update Main Service ###############################-->
+<div id="update-form" *ngIf="editMainService" [@enterAnimation]>
+  <div class="popup-form">
+    <!-- Start Form  -->
+    <div class="m-portlet m-portlet--tab">
+      <h3>تعديل خدمة رئيسية</h3>
+      <form (ngSubmit)="submitMainUpdate(mainService)" #mainService="ngForm" class="m-form m-form--fit m-form--label-align-right">
+        <div class="m-portlet__body update-technical-form">
+          <div class="form-group m-form__group">
+            <label> إسم الخدمة <span class="important-star">*</span></label>
+            <div class="m-input-icon m-input-icon--left m-input-icon--right">
+              <!-- [ngModel]="editMode ? updatedData.name : ''" -->
+              <input type="text" required id="mainServiceName" [ngModel]="mainTempName" name="name" class="form-control m-input m-input--pill m-input--air" placeholder="إسم الخدمة" #name="ngModel" />
+              <span class="m-input-icon__icon m-input-icon__icon--right">
+                <span> <i class="la la-user"></i> </span>
+              </span>
+            </div>
+            <div *ngIf="mainService.valid" class="form-control-feedback m--font-success state-valid state">إدخال صحيح</div>
+            <div *ngIf="mainService.invalid && mainService.touched" class="form-control-feedback m--font-danger state-wrong state">من فضلك ادخل الإسم بشكل صحيح</div>
+          </div>
+          <!-- Start Active -->
+          <div class="form-group m-form__group">
+            <label>التفعيل</label>
+            <div class="m-input-icon m-input-icon--left m-input-icon--right">
+              <!-- Start Toggle -->
+              <span class="m-switch m-switch--outline m-switch--icon m-switch--success">
+                <label>
+                  <!-- [(ngModel)]="editMode ? updatedData.active : binding" -->
+                  <input [ngModel]="mainTempActive" type="checkbox" value="1" name="active" #active="ngModel" /> <span></span>
+                </label>
+              </span>
+              <!-- End Toggle -->
+            </div>
+          </div>
+          <!-- End Active -->
+          <!-- Start Submit -->
+          <div class="m-portlet__foot m-portlet__foot--fit">
+            <div class="m-form__actions">
+              <!-- *ngIf="!editMode" -->
+              <button [disabled]="mainService.invalid" type="submit" class="btn btn-success" style="margin-left: 10px;">حفظ</button>
+              <!--  -->
+              <button type="reset" (click)="editMainService = false" class="btn btn-secondary">إلغاء</button>
+              <!-- <button type="button" (click)="onUpdate()" class="btn btn-success" style="margin-left: 10px;" *ngIf="editMode">حفظ التعديلات</button>
+              <button type="button" (click)="onCloseEdit()" class="btn btn-secondary" *ngIf="editMode">إغلاق</button> -->
+            </div>
+          </div>
+          <!-- End Submit -->
+        </div>
+      </form>
+    </div>
+    <!-- End Form  -->
+  </div>
+</div>
+<!--############################### End Update Main Service ###############################-->
+<!--############################### Start Update Sub Service ###############################-->
+<div id="update-form" *ngIf="editSubService" [@enterAnimation]>
+  <div class="popup-form">
+    <!-- Start Form  -->
+    <div class="m-portlet m-portlet--tab">
+      <h3>إضافة خدمة فرعية</h3>
+      <form (ngSubmit)="submitSubUpdate(subService)" #subService="ngForm" class="m-form m-form--fit m-form--label-align-right">
+        <div class="m-portlet__body update-technical-form">
+          <div class="form-group m-form__group">
+            <label> إسم الخدمة <span class="important-star">*</span></label>
+            <div class="m-input-icon m-input-icon--left m-input-icon--right">
+              <!-- [ngModel]="editMode ? updatedData.name : ''" -->
+              <input type="text" required id="username" [ngModel]="subServiceData.name" name="name" class="form-control m-input m-input--pill m-input--air" placeholder="إسم الخدمة" #name="ngModel" />
+
+              <span class="m-input-icon__icon m-input-icon__icon--right">
+                <span> <i class="la la-user"></i> </span>
+              </span>
+            </div>
+            <div *ngIf="name.valid" class="form-control-feedback m--font-success state-valid state">إدخال صحيح</div>
+            <div *ngIf="name.invalid && name.touched" class="form-control-feedback m--font-danger state-wrong state">من فضلك ادخل الإسم بشكل صحيح</div>
+          </div>
+          <!-- Start Select search -->
+          <div class="form-group m-form__group">
+            <label> الخدمة الرئيسية <span class="important-star">*</span> </label> <br *ngIf="!editMainSub" />
+            <!-- *ngIf="editMode"  -->
+            <label *ngIf="!editMainSub">{{ mainServiceData.name }}</label> <br />
+            <label>
+              <span> تعديل الخدمة ؟</span> <br />
+              <!-- // Start Toggle -->
+              <span
+                class="m-switch m-switch--outline m-switch--icon m-switch--success"
+                style="display:flex;margin-top: 15px;
+                margin-bottom: 10px;"
+              >
+                <label style="margin:0"> <input [(ngModel)]="editMainSub != editMainSub" type="checkbox" name="editMainSub" /> <span></span> </label>
+              </span>
+              <!-- // End Toggle -->
+            </label>
+
+            <div *ngIf="editMainSub" class="m-input-icon m-input-icon--left m-input-icon--right">
+              <input type="hidden" name="select" #select="ngModel" [(ngModel)]="selectValidation" required />
+              <ngx-select-dropdown [config]="serviceConfig" [options]="serviceArray" (change)="serviceChanged($event)" class="form-control m-input m-input--pill m-input--air ngx-select">
+              </ngx-select-dropdown>
+              <span class="m-input-icon__icon m-input-icon__icon--right">
+                <span> <i class="la la-gear"></i> </span>
+              </span>
+            </div>
+          </div>
+          <!-- End Select search -->
+          <!-- Start Active -->
+          <div class="form-group m-form__group">
+            <label>التفعيل</label>
+            <div class="m-input-icon m-input-icon--left m-input-icon--right">
+              <!-- Start Toggle -->
+              <span class="m-switch m-switch--outline m-switch--icon m-switch--success">
+                <label>
+                  <!-- [(ngModel)]="editMode ? updatedData.active : binding" -->
+                  <input [(ngModel)]="subServiceData.active" type="checkbox" value="1" name="active" #active="ngModel" /> <span></span>
+                </label>
+              </span>
+              <!-- End Toggle -->
+            </div>
+          </div>
+          <!-- End Active -->
+          <!-- Start Submit -->
+          <div class="m-portlet__foot m-portlet__foot--fit">
+            <div class="m-form__actions">
+              <button [disabled]="subService.invalid" *ngIf="!editMode" type="submit" class="btn btn-success" style=" margin-left: 10px;">حفظ</button>
+              <button *ngIf="!editMode" (click)="editSubService = false" type="reset" class="btn btn-secondary">إلغاء</button>
+
+              <!-- <button type="button" (click)="onUpdate()" class="btn btn-success" style="margin-left: 10px;" *ngIf="editMode">حفظ التعديلات</button>
+            <button type="button" (click)="onCloseEdit()" class="btn btn-secondary" *ngIf="editMode">إغلاق</button> -->
+            </div>
+          </div>
+          <!-- End Submit -->
+        </div>
+      </form>
+    </div>
+    <!-- End Form  -->
+  </div>
+</div>
+<!--############################### End Update Sub Service ###############################-->

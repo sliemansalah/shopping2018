@@ -1,0 +1,9 @@
+#accountImage {
+  cursor: pointer;
+}
+.m-dropdown .m-dropdown__wrapper {
+  display: block;
+}
+.margin-top-zero {
+  margin-top: 0;
+}

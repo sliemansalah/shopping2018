@@ -1,0 +1,210 @@
+<!-- begin:: Page -->
+<div class="m-grid m-grid--hor m-grid--root m-page">
+  <!-- BEGIN: Header -->
+  <app-header></app-header>
+  <!-- END: Header -->
+  <!-- begin::Body -->
+  <div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-body">
+    <!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Start Side Mneu ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
+    <app-side-nav></app-side-nav>
+    <!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ End Side Mneu ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
+    <!-- ########### START PAGE CONTENT ########### -->
+    <div class="m-grid__item m-grid__item--fluid m-wrapper">
+      <!-- BEGIN: Subheader -->
+      <div class="m-subheader ">
+        <div class="d-flex align-items-center">
+          <div class="mr-auto"><h3 class="m-subheader__title ">جميع الفنيين</h3></div>
+        </div>
+      </div>
+      <!-- END: Subheader -->
+      <div class="m-content">
+        <div class="row">
+          <div class="col-xl-12 col-lg-12">
+            <div class="m-section m-portlet m-portlet--full-height get-float-right">
+              <div class="m-section__content col-xl-12 col-lg-12">
+                <div class="m-portlet m-portlet--tab">
+                  <!-- Start Table -->
+                  <div class="m-portlet__body">
+                    <!-- begin: Search Form -->
+                    <!-- <div class="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-30">
+                      <div class="row align-items-center">
+                        <div class="col-xl-8 order-2 order-xl-1">
+                          <div class="form-group m-form__group row align-items-center">
+                            <div class="col-md-4">
+                              <div class="m-form__group m-form__group--inline">
+                                <div class="m-form__label"><label> الحالة: </label></div>
+                                <div class="m-form__control">
+                                  <div class="btn-group bootstrap-select form-control m-bootstrap-select">
+                                    <button type="button" class="btn dropdown-toggle bs-placeholder btn-default" data-toggle="dropdown" role="button" data-id="m_form_status" title="All">
+                                      <span class="filter-option pull-left"> الكل </span>&nbsp;<span class="bs-caret"><span class="caret"></span></span>
+                                    </button>
+                                    <div class="dropdown-menu open" role="combobox">
+                                      <ul class="dropdown-menu inner" role="listbox" aria-expanded="false">
+                                        <li data-original-index="0" class="selected">
+                                          <a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="true"
+                                            ><span class="text"> الكل </span><span class="glyphicon glyphicon-ok check-mark"></span
+                                          ></a>
+                                        </li>
+                                        <li data-original-index="1">
+                                          <a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"
+                                            ><span class="text"> متفرغ </span><span class="glyphicon glyphicon-ok check-mark"></span
+                                          ></a>
+                                        </li>
+                                        <li data-original-index="2">
+                                          <a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"
+                                            ><span class="text"> فى الطريق </span><span class="glyphicon glyphicon-ok check-mark"></span
+                                          ></a>
+                                        </li>
+                                        <li data-original-index="3">
+                                          <a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"
+                                            ><span class="text"> انهي عملة </span><span class="glyphicon glyphicon-ok check-mark"></span
+                                          ></a>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="d-md-none m--margin-bottom-10"></div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="m-form__group m-form__group--inline">
+                                <div class="m-form__label"><label class="m-label m-label--single"> الخدمة: </label></div>
+                                <div class="m-form__control">
+                                  <div class="btn-group bootstrap-select form-control m-bootstrap-select">
+                                    <button type="button" class="btn dropdown-toggle bs-placeholder btn-default" data-toggle="dropdown" role="button" data-id="m_form_type" title="All">
+                                      <span class="filter-option pull-left"> الكل </span>&nbsp;<span class="bs-caret"><span class="caret"></span></span>
+                                    </button>
+                                    <div class="dropdown-menu open" role="combobox">
+                                      <ul class="dropdown-menu inner" role="listbox" aria-expanded="false">
+                                        <li data-original-index="0" class="selected">
+                                          <a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="true"
+                                            ><span class="text"> تكييفات </span><span class="glyphicon glyphicon-ok check-mark"></span
+                                          ></a>
+                                        </li>
+                                        <li data-original-index="1">
+                                          <a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"
+                                            ><span class="text"> سباكة </span><span class="glyphicon glyphicon-ok check-mark"></span
+                                          ></a>
+                                        </li>
+                                        <li data-original-index="2">
+                                          <a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"
+                                            ><span class="text"> اعمال صيانة </span><span class="glyphicon glyphicon-ok check-mark"></span
+                                          ></a>
+                                        </li>
+                                        <li data-original-index="3">
+                                          <a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"
+                                            ><span class="text"> تصليح </span><span class="glyphicon glyphicon-ok check-mark"></span
+                                          ></a>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="d-md-none m--margin-bottom-10"></div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="m-input-icon m-input-icon--left">
+                                <input type="text" class="form-control m-input" placeholder="إبحث بالإسم ..." id="generalSearch" />
+                                <span class="m-input-icon__icon m-input-icon__icon--left">
+                                  <span> <i class="la la-search"></i> </span>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xl-4 order-1 order-xl-2 m--align-right">
+                          <a routerLink="/add-technical" class="btn btn-primary m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill">
+                            <span> <i class="la la-user-plus"></i> <span> إضافة فنى </span> </span>
+                          </a>
+                          <div class="m-separator m-separator--dashed d-xl-none"></div>
+                        </div>
+                      </div>
+                    </div> -->
+                    <!-- end: Search Form -->
+                    <!-- begin: Datatable -->
+                    <div *ngIf="!anyTechnicalExist">لا توجد بيانات للعرض</div>
+
+                    <div *ngIf="anyTechnicalExist" class="m-datatable m-datatable--default m-datatable--brand m-datatable--loaded" id="all-search-table">
+                      <div *ngIf="emptyArray" class="m-loader m-loader--brand" style="width: 30px; display: inline-block;"></div>
+                      <table class="m-datatable__table search-table" id="html_table" width="100%">
+                        <thead class="m-datatable__head table-head">
+                          <tr class="m-datatable__row">
+                            <th class="m-datatable__cell m-datatable__cell--sort"><span>المسلسل</span></th>
+                            <th class="m-datatable__cell m-datatable__cell--sort"><span>إسم الفني</span></th>
+                            <th class="m-datatable__cell m-datatable__cell--sort"><span>رقم الهاتف</span></th>
+                            <th class="m-datatable__cell m-datatable__cell--sort"><span>نوع الخدمه</span></th>
+                            <th class="m-datatable__cell m-datatable__cell--sort"><span class="email-td">البريد الإلكتروني</span></th>
+                            <th class="m-datatable__cell m-datatable__cell--sort"><span>حالة الفني</span></th>
+                            <th class="m-datatable__cell m-datatable__cell--sort"><span>تعديل البيانات</span></th>
+                            <th class="m-datatable__cell m-datatable__cell--sort"><span>حذف الحساب</span></th>
+                          </tr>
+                        </thead>
+                        <tbody class="m-datatable__body">
+                          <tr class="m-datatable__row" *ngFor="let technical of technicians">
+                            <td class="m-datatable__cell">
+                              <span>{{ technical.id }}</span>
+                            </td>
+                            <td class="m-datatable__cell">
+                              <span>{{ technical.name }}</span>
+                            </td>
+                            <td class="m-datatable__cell">
+                              <span>{{ technical.mobile }}</span>
+                            </td>
+                            <td class="m-datatable__cell">
+                              <span *ngIf="technical.service_id == 1">تكييفات</span> <span *ngIf="technical.service_id == 2">سباكة</span> <span *ngIf="technical.service_id == 3">اعمال صيانة</span>
+                              <span *ngIf="technical.service_id == 4">نقاشة</span> <span *ngIf="technical.service_id == 5">ميكانيكا سيارات</span> <span *ngIf="technical.service_id == 6">نجارة</span>
+                            </td>
+                            <td class="m-datatable__cell">
+                              <span class="email-td">{{ technical.email }}</span>
+                            </td>
+                            <td class="m-datatable__cell">
+                              <span *ngIf="technical.active == 1"> <span class="m-badge  m-badge--success m-badge--wide">مفعل</span> </span>
+                              <span *ngIf="technical.active == 0"> <span class="m-badge  m-badge--danger m-badge--wide">غير مفعل</span> </span>
+                            </td>
+                            <!-- <td class="m-datatable__cell">
+                              <span *ngIf="technical.active == 1">
+                                <span class="m-badge m-badge--danger m-badge--dot"></span>&nbsp; <span class="m--font-bold m--font-danger">إلغاء التفعيل</span>
+                              </span>
+                              <span *ngIf="technical.active == 0"> <span class="m-badge m-badge--success m-badge--dot"></span>&nbsp; <span class="m--font-bold m--font-success">تفعيل</span> </span>
+                            </td> -->
+                            <td class="m-datatable__cell">
+                              <span><button (click)="updateTechnical(technical.id)" type="button" class="btn btn-success update-button">تعديل البيانات</button></span>
+                            </td>
+                            <td class="m-datatable__cell">
+                              <span><button type="button" class="btn btn-danger" (click)="deleteTechnical(technical.id)">حذف الحساب</button></span>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <div class="m-datatable__pager m-datatable--paging-loaded clearfix">
+                        <ul class="m-datatable__pager-nav">
+                          <!-- <li><a class="m-datatable__pager-link m-datatable__pager-link-number m-datatable__pager-link--active">1</a></li> -->
+                          <li *ngFor="let i of pagesNumber">
+                            <a (click)="goPage(i)" [class]="pageId == i ? pageActiveNumberClass : pageNumberClass">{{ i }}</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <!-- end: Datatable -->
+                  </div>
+                  <!-- End Table -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="update-form" *ngIf="editMode">
+        <div class="popup-form"><app-technical-form [updatedId]="updatedTechnicalData" (editSuccess)="editSuccess($event)" (editModeChange)="editModeChange($event)"></app-technical-form></div>
+      </div>
+      <!-- begin::Footer -->
+      <app-footer></app-footer>
+      <!-- end::Footer -->
+    </div>
+    <!-- ########### END PAGE CONTENT ########### -->
+  </div>
+  <!-- end:: Body -->
+</div>
+<!-- end:: Page -->

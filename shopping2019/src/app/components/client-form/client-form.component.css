@@ -1,0 +1,32 @@
+.update-technical-form {
+  padding: 0;
+  padding-top: 30px;
+}
+.form-group.m-form__group {
+    width: 50%;
+    float: right;
+}
+#air_select{
+  width:100%
+}
+#air_select label {
+  width:100%
+}
+#air_select .m-input-icon.m-input-icon--left.m-input-icon--right{
+  width:40%;
+  float:right;
+  margin-left: 25px;
+}
+#air_select .m-input-icon.m-input-icon--left.m-input-icon--right:last-child{
+  width:auto;
+}
+.m-portlet__foot.m-portlet__foot--fit {
+    width: 100%;
+    clear: both;
+}
+.block-separate{
+  margin: 30px 30px !important;
+      padding-bottom: 15px !important;
+      display: inline-block;
+       width: calc(100% - 60px);
+}

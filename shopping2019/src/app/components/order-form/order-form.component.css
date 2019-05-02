@@ -1,0 +1,227 @@
+/* Time Table */
+#test {
+  color: #575962;
+  box-shadow: 0px 0px 1px 1px #eee;
+  direction: ltr;
+  width: 100%;
+  display: table;
+  padding-left: 0;
+  padding-right: 0;
+}
+#test table {
+  width: calc(100% - 60px);
+  max-width: 100%;
+  background-color: transparent;
+  text-align: center;
+  border: 2px solid #0ba88c;
+  margin-left: 30px;
+}
+#test table th {
+  background: #34bfa3;
+  color: #ffffff;
+  padding: 5px 0;
+  padding-top: 8px;
+  font-size: 14px;
+}
+#test .table-radio {
+  margin-right: 9px;
+  position: relative;
+  top: 4px;
+}
+#test .table-name {
+  position: relative;
+  top: 3px;
+}
+#test table td {
+  padding: 0.75rem 2px;
+  vertical-align: top;
+  border-top: 2px solid #1fa78c;
+  border-right: 1px solid #eee;
+}
+#test table td:last-child {
+  border-right: 0;
+}
+#test table td .table-minute {
+  width: calc(100% / 60);
+  height: 15px;
+  display: inline-block;
+}
+#test .started {
+  background: #3498db;
+}
+#test .finished {
+  background: #f1c40f;
+}
+
+#test .admin_approved {
+  background: #e67e22;
+}
+#test .technician_approved {
+  background: #2ecc71;
+}
+#test .admin_pending {
+  background: #7f8c8d;
+}
+.order-status-21 {
+  background: #12cbc4;
+}
+.m-datatable__body .order-status-22 {
+  background: #ffc312;
+}
+.order-status-19 {
+  background: #f79f1f;
+}
+.order-status-20 {
+  background: #34bfa3;
+}
+.order-status-18 {
+  background: #c4c5d6;
+}
+.order-status-29 {
+  background: #fda7df;
+}
+.table-keys {
+  margin: 30px 0 10px 0;
+  display: flex;
+  justify-content: center;
+}
+#test table .times-bar {
+  position: absolute;
+  width: 100%;
+  top: 55%;
+  transform: translateY(-50%);
+}
+
+#test table .hour-bar {
+  position: relative;
+}
+.table-keys .span-bg {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  /* float: right; */
+  margin-left: 10px;
+}
+.table-keys label {
+  margin-left: 30px;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  float: right;
+}
+/* Time Table */
+#timing {
+  display: inline-block;
+  width: 100%;
+  padding-bottom: 21px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 10px;
+}
+textarea {
+  direction: rtl;
+}
+.full-width {
+  width: 100% !important;
+}
+.update-technical-form {
+  padding: 0;
+  padding-top: 30px;
+}
+.ngx-select {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.plusng-select {
+  width: calc(100% - 50px);
+}
+.editPlaceholderName {
+  color: #a4a0bc;
+}
+.update-technical-form {
+  padding: 0;
+  padding-top: 30px;
+}
+.form-group.m-form__group {
+  width: 50%;
+  float: right;
+}
+#air_select {
+  width: 100%;
+}
+#air_select label {
+  width: 100%;
+}
+#air_select .m-input-icon.m-input-icon--left.m-input-icon--right {
+  width: 40%;
+  float: right;
+  margin-left: 25px;
+}
+#air_select .m-input-icon.m-input-icon--left.m-input-icon--right:last-child {
+  width: auto;
+}
+.m-portlet__foot.m-portlet__foot--fit {
+  width: 100%;
+  clear: both;
+}
+.block-separate {
+  margin: 30px 30px !important;
+  padding-bottom: 15px !important;
+  display: inline-block;
+  width: calc(100% - 60px);
+}
+.form-group.m-form__group {
+  padding-top: 15px !important;
+  height: 110px;
+}
+.addButton {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  border: 0;
+  font-size: 20px;
+  font-weight: 800;
+  padding: 3px 12px;
+  text-shadow: 0px 0px 2px #333333a1;
+  border-radius: 50% 0;
+}
+.name-width {
+  width: 20px;
+  display: inline-block;
+}
+.name-Table-Radio {
+  text-align: left;
+}
+#desc-form {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.3);
+  z-index: 9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#desc-data {
+  background: #fff;
+  padding: 16px 40px;
+  box-shadow: 0px 0px 10px 1px rgba(51, 51, 51, 0.06);
+}
+#desc-data p {
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+  font-size: 18px;
+}
+button.ngx-dropdown-button {
+  border: 0 !important;
+}

@@ -1,0 +1,204 @@
+<!-- <button type="button" (click)="check()">check</button> -->
+<div class="m-portlet m-portlet--tab">
+  <form (ngSubmit)="onSubmit()" #f="ngForm" class="m-form m-form--fit m-form--label-align-right">
+    <div class="m-portlet__body update-technical-form">
+      <div class="form-group m-form__group">
+        <label> إسم العرض <span class="important-star">*</span></label>
+        <div class="m-input-icon m-input-icon--left m-input-icon--right">
+          <input
+            type="text"
+            required
+            id="username"
+            [ngModel]="editMode ? updatedData.name : ''"
+            name="name"
+            class="form-control m-input m-input--pill m-input--air"
+            placeholder="إسم العرض"
+            #name="ngModel"
+          />
+
+          <span class="m-input-icon__icon m-input-icon__icon--right">
+            <span> <i class="la la-user"></i> </span>
+          </span>
+        </div>
+        <div *ngIf="name.valid" class="form-control-feedback m--font-success state-valid state">إدخال صحيح</div>
+        <div *ngIf="name.invalid && name.touched" class="form-control-feedback m--font-danger state-wrong state">من فضلك ادخل الإسم بشكل صحيح</div>
+      </div>
+      <!-- Start Select search -->
+      <div class="form-group m-form__group">
+        <label>
+          المصدر <span class="important-star">*</span>
+          <!--  -->
+        </label>
+        <div class="m-input-icon m-input-icon--left m-input-icon--right">
+          <ngx-select-dropdown
+            class="form-control m-input m-input--pill m-input--air ngx-select"
+            [config]="resourceConfig"
+            [options]="resourceArray"
+            (change)="resourceChanged($event)"
+            [(value)]="resource_value"
+            [ngModel]="resource_values"
+            name="source_id"
+            #source_id="ngModel"
+            ngDefaultControl
+          ></ngx-select-dropdown>
+          <span class="m-input-icon__icon m-input-icon__icon--right">
+            <span> <i class="la la-gear"></i> </span>
+          </span>
+        </div>
+      </div>
+      <!-- End Select search -->
+      <!-- Start Select search -->
+      <div class="form-group m-form__group">
+        <label>
+          الخدمة الرئيسية <span class="important-star">*</span>
+          <!--  -->
+        </label>
+        <div class="m-input-icon m-input-icon--left m-input-icon--right">
+          <ngx-select-dropdown
+            class="form-control m-input m-input--pill m-input--air ngx-select"
+            [config]="serviceConfig"
+            [options]="serviceArray"
+            (change)="serviceChanged($event)"
+            [(value)]="service_value"
+            [ngModel]="service_values"
+            name="service_id"
+            #service_id="ngModel"
+            ngDefaultControl
+          >
+          </ngx-select-dropdown>
+          <span class="m-input-icon__icon m-input-icon__icon--right">
+            <span><i class="la la-cogs"></i> </span>
+            <!--  -->
+          </span>
+        </div>
+      </div>
+      <!-- End Select search -->
+      <!-- Start Select search -->
+      <div class="form-group m-form__group">
+        <label>
+          الخدمة الفرعية <span class="important-star">*</span
+          ><!--  -->
+        </label>
+        <div class="m-input-icon m-input-icon--left m-input-icon--right">
+          <ngx-select-dropdown
+            class="form-control m-input m-input--pill m-input--air ngx-select"
+            [config]="subServiceConfig"
+            [options]="subServiceArray"
+            (change)="subServiceChanged($event)"
+            [(value)]="subService_value"
+            [ngModel]="subService_values"
+            name="service_id"
+            #service_id="ngModel"
+            ngDefaultControl
+          >
+          </ngx-select-dropdown>
+          <span class="m-input-icon__icon m-input-icon__icon--right">
+            <span><i class="la la-cogs"></i> </span>
+          </span>
+        </div>
+      </div>
+      <!-- End Select search -->
+      <!-- Start Date -->
+      <div class="form-group m-form__group">
+        <label> تاريخ البدء </label>
+        <div class="m-input-icon m-input-icon--left m-input-icon--right">
+          <!--  -->
+          <input
+            class="form-control m-input m-input--pill m-input--air"
+            type="date"
+            value=""
+            id="example-date-input"
+            [ngModel]="editMode ? updatedData.start_date : ''"
+            name="start_date"
+            #start_date="ngModel"
+          />
+          <span class="m-input-icon__icon m-input-icon__icon--right">
+            <span> <i class="la la-calendar-o"></i> </span>
+          </span>
+        </div>
+      </div>
+      <!-- End Date -->
+      <!-- Start Date -->
+      <div class="form-group m-form__group">
+        <label> تاريخ الإنتهاء </label>
+        <div class="m-input-icon m-input-icon--left m-input-icon--right">
+          <input
+            class="form-control m-input m-input--pill m-input--air"
+            type="date"
+            value=""
+            id="example-date-input"
+            [ngModel]="editMode ? updatedData.end_date : ''"
+            name="end_date"
+            #end_date="ngModel"
+          />
+          <span class="m-input-icon__icon m-input-icon__icon--right">
+            <span> <i class="la la-calendar-o"></i> </span>
+          </span>
+        </div>
+      </div>
+      <!-- End Date -->
+      <!-- Start Description -->
+      <div class="form-group m-form__group">
+        <label> معلومات العرض <span class="important-star">*</span></label>
+        <div class="m-input-icon m-input-icon--left m-input-icon--right">
+          <textarea
+            class="form-control m-input m-input--pill m-input--air"
+            id="example-date-input"
+            required
+            [ngModel]="editMode ? updatedData.description : ''"
+            name="description"
+            #description="ngModel"
+          ></textarea>
+          <span class="m-input-icon__icon m-input-icon__icon--right">
+            <span> <i class="la la-file-text"></i> </span>
+          </span>
+        </div>
+        <div *ngIf="description.valid" class="form-control-feedback m--font-success state-valid state">إدخال صحيح</div>
+        <div *ngIf="description.invalid && description.touched" class="form-control-feedback m--font-danger state-wrong state">من فضلك ادخل معلومات العرض بشكل صحيح</div>
+      </div>
+      <!-- End Description -->
+      <!-- Offer Image -->
+      <div class="form-group m-form__group">
+        <label for="exampleInputEmail1"> صورة العرض </label>
+        <div></div>
+        <div class="custom-file">
+          <input
+            type="file"
+            alife-file-to-base64
+            (onFileChanged)="onFileChanges($event)"
+            value=""
+            name="uploadImage"
+            accept="image/x-png,image/jpeg,image/jpg"
+            class="custom-file-input"
+            id="customFile"
+          />
+          <label class="custom-file-label" for="customFile"> صورة العرض </label>
+        </div>
+      </div>
+      <input type="hidden" [(ngModel)]="offerImage" name="image" #image="ngModel" />
+      <!-- Offer Image -->
+      <!-- Start Active -->
+      <div class="form-group m-form__group">
+        <label>التفعيل<span class="important-star">*</span></label>
+        <div class="m-input-icon m-input-icon--left m-input-icon--right">
+          <!-- Start Toggle -->
+          <span class="m-switch m-switch--outline m-switch--icon m-switch--success">
+            <label> <input [(ngModel)]="editMode ? updatedData.active : ActiveState" type="checkbox" value="1" name="active" #active="ngModel" /> <span></span> </label>
+          </span>
+          <!-- End Toggle -->
+        </div>
+      </div>
+      <!-- End Active -->
+      <!-- Start Submit -->
+      <div class="m-portlet__foot m-portlet__foot--fit">
+        <div class="m-form__actions">
+          <button *ngIf="!editMode" type="submit" class="btn btn-success" style="margin-left: 10px;">حفظ</button> <button *ngIf="!editMode" type="reset" class="btn btn-secondary">إعادة تعيين</button>
+
+          <button type="button" (click)="onUpdate()" class="btn btn-success" style="margin-left: 10px;" *ngIf="editMode">حفظ التعديلات</button>
+          <button type="button" (click)="onFinishEdit()" class="btn btn-secondary" *ngIf="editMode">إغلاق</button>
+        </div>
+      </div>
+      <!-- End Submit -->
+    </div>
+  </form>
+</div>

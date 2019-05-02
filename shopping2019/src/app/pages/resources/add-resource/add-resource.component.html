@@ -1,0 +1,64 @@
+<!-- begin:: Page -->
+<div class="m-grid m-grid--hor m-grid--root m-page">
+  <!-- BEGIN: Header -->
+  <app-header></app-header>
+  <!-- END: Header -->
+  <!-- begin::Body -->
+  <div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-body">
+    <!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Start Side Mneu ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
+    <app-side-nav></app-side-nav>
+    <!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ End Side Mneu ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
+    <!-- ########### START PAGE CONTENT ########### -->
+    <div class="m-grid__item m-grid__item--fluid m-wrapper">
+      <!-- BEGIN: Subheader -->
+      <div class="m-subheader ">
+        <div class="d-flex align-items-center">
+          <div class="mr-auto"><h3 class="m-subheader__title ">المصادر</h3></div>
+        </div>
+      </div>
+      <!-- END: Subheader -->
+      <div class="m-content">
+        <div class="row">
+          <div class="col-xl-12 col-lg-12">
+            <div class="m-section m-portlet m-portlet--full-height get-float-right">
+              <div class="m-section__content col-lg-12">
+                <!-- begin::Portlet -->
+                <div>
+                  <!-- Start Resources Options Tabs -->
+                  <div class="row">
+                    <div class="col-xl-12 col-lg-12">
+                      <!-- Begin::Portlet -->
+                      <div class="m-portlet">
+                        <div class="m-portlet__head">
+                          <div class="m-portlet__head-caption">
+                            <div class="m-portlet__head-title"><h3 class="m-portlet__head-text">إضافة مصدر</h3></div>
+                          </div>
+                        </div>
+                        <div class="m-portlet__body">
+                          <div class="m-scrollable mCustomScrollbar _mCS_5 mCS-autoHide _mCS_2">
+                            <!-- Start Resources Table -->
+                            <app-resources-form></app-resources-form>
+                            <!-- End Resources Table -->
+                          </div>
+                        </div>
+                      </div>
+                      <!-- End::Portlet -->
+                    </div>
+                  </div>
+                  <!-- End Resources Options Tabs -->
+                </div>
+                <!-- end::Portlet -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- begin::Footer -->
+      <app-footer></app-footer>
+      <!-- end::Footer -->
+    </div>
+    <!-- ########### END PAGE CONTENT ########### -->
+  </div>
+  <!-- end:: Body -->
+</div>
+<!-- end:: Page -->

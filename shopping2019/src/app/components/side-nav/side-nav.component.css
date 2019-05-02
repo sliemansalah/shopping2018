@@ -1,0 +1,32 @@
+.SubMenuAngle {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  height: 0px !important;
+  transition: all 300ms;
+}
+.SubMenuList i {
+  font-size: 18px;
+  position: relative;
+  bottom: 4px;
+}
+.SubMenuList span {
+  font-size: 14px;
+}
+.m-menu__subnav li {
+  border-bottom: 1px solid #bf2d46;
+  padding: 7px 0;
+}
+.m-menu__subnav li:last-child {
+  border-bottom: 0;
+}
+.rotateAngle {
+  transform: rotateZ(-90deg);
+}
+.m-menu__item--list--active span,
+.m-menu__item--list--active i {
+  color: #ffffff !important;
+}
+.right-zero {
+  right: 0;
+}

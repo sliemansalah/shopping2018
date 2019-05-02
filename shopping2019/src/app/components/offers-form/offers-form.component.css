@@ -1,0 +1,11 @@
+.update-technical-form {
+  padding: 0;
+  padding-top: 30px;
+}
+.ngx-select {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.editPlaceholderName {
+  color: #a4a0bc;
+}
