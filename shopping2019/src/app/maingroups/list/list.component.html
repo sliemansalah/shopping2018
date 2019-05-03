@@ -14,7 +14,7 @@
       <div class="m-subheader ">
         <div class="d-flex align-items-center">
           <div class="mr-auto">
-            <h3 class="m-subheader__title ">الصفحة الرئيسية</h3>
+            <h3 class="m-subheader__title md-display-3">المجموعات الرئيسية</h3>
           </div>
         </div>
       </div>
@@ -24,8 +24,7 @@
           <div class="col-xl-12 col-lg-12">
             <div class="m-section m-portlet m-portlet--full-height get-float-right">
               <div class="m-section__content col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <h3>إحصائيات</h3>
-                <div *ngIf="load!=true" class="sk-fading-circle">
+                <div *ngIf="spinner==true" class="sk-fading-circle">
                   <div class="sk-circle1 sk-circle"></div>
                   <div class="sk-circle2 sk-circle"></div>
                   <div class="sk-circle3 sk-circle"></div>
@@ -40,45 +39,26 @@
                   <div class="sk-circle12 sk-circle"></div>
                 </div>
 
-                <div *ngIf="load==true" class="m-portlet m-portlet--tab">
-                  <table class="table m-table m-table--head-bg-success">
-                    <thead>
-                      <tr>
-                        <th>#</th>
-                        <th>الاسم</th>
-                        <th>العدد</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>
-                          <a routerLink="/maingroups"> المجموعات الرئيسية </a>
-                        </td>
-                        <td>{{maingroup_count}}</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>المجموعات الفرعية</td>
-                        <td>{{subgroup_count}}</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>الشركات</td>
-                        <td>{{company_count}}</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">4</th>
-                        <td>الوحدات</td>
-                        <td>{{unit_count}}</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">5</th>
-                        <td>المنتجات</td>
-                        <td>{{product_count}}</td>
-                      </tr>
-                    </tbody>
-                  </table>
+                <div *ngFor="let item of results">
+                  <div lass="col-xl-12 col-lg-12">
+                    <button style="width:100%;margin-top: 15px;
+          margin-right: 10%;height: 80px;margin-left: auto;margin-right: auto;
+                        "
+                      class="btn btn-primary">
+                      <img src="https://bitymall.com/imgs/logo.png" style="
+max-width: 100px;
+position: relative;
+float: right;
+height: 80px;
+bottom: 9px;
+left: 14px;
+width: 100px;
+"
+                        alt="">
+                      <i class="fa fa-pencil-square-o" style="" aria-hidden="true"></i>
+                      <span style="display: inline-block;text-align: center;margin-top:20px;"> {{item.name}} </span>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

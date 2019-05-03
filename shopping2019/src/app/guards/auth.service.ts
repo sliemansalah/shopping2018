@@ -1,6 +1,5 @@
 import { Injectable, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import { MainProvider } from '../shared/headers';
 import { Router } from '@angular/router';
@@ -10,7 +9,7 @@ declare let swal: any;
 
 @Injectable()
 export class AuthService implements OnInit {
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) { }
   ngOnInit() {
     console.log('here');
   }
@@ -36,9 +35,6 @@ export class AuthService implements OnInit {
 
           return user;
         },
-        error => {
-          swal(error.error.message, '', 'error');
-        }
       );
   }
 

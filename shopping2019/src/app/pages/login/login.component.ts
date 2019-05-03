@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../guards/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,10 +7,19 @@ import { AuthService } from '../../guards/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  constructor(private authService: AuthService) {}
+  constructor(private router: Router) { }
+  alert_show = false; email; password;
+  ngOnInit() { }
+  login() {
+    if (this.email.toString() == 'admin@admin.com' && this.password == '123456') {
+      localStorage.setItem("login", "true");
+      this.router.navigate(['home'])
+    } else {
+      this.alert_show = true;
+    }
 
-  ngOnInit() {}
-  login(email, password) {
-    this.authService.login(email, password);
+  }
+  closeAlert() {
+    this.alert_show = false;
   }
 }

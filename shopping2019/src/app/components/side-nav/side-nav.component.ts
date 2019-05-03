@@ -1,10 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute, Router, ActivatedRouteSnapshot } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataStorageService } from '../../shared/data-storage.service';
 import * as $ from 'jquery';
-import { ClientsService } from '../../pages/clients/clients.service';
-import { MainProvider } from '../../shared/headers';
-import { OrdersService } from '../../pages/orders/orders.service';
 
 @Component({
   selector: 'app-side-nav',
@@ -32,7 +29,6 @@ export class SideNavComponent implements OnInit {
     private router: Router, //
     private route: ActivatedRoute,
     public dataStorageService: DataStorageService,
-    private clientsService: ClientsService
   ) {
     this.pagActive = this.router.url.includes('all-technicians');
     this.clientsActive = this.router.url.includes('all-clients');
@@ -42,11 +38,7 @@ export class SideNavComponent implements OnInit {
     this.inAddOrder = this.router.url.includes('order');
     console.log(this.inAllOrders);
 
-    // Get Permission Module
-    if (localStorage.getItem('currentUser')) {
-      const data = JSON.parse(localStorage.getItem('currentUser')).modules;
-      this.modules = data;
-    }
+
     // Get Permission Module
   }
 

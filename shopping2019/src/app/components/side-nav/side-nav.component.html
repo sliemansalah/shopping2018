@@ -2,196 +2,23 @@
 <!-- <button class="m-aside-right-close m-aside-right-close--skin-dark" id="m_aside_right_close_btn"><i class="la la-close"></i></button> -->
 <div id="m_aside_right" class="m-grid__item	m-aside-right  m-aside-right--skin-dark ">
   <!-- BEGIN: Aside Menu -->
-  <div
-    id="m_ver_menu"
-    class="m-aside-menu  m-aside-menu--skin-dark m-aside-menu--submenu-skin-dark m-aside-menu--dropdown "
-    data-menu-vertical="true"
-    data-menu-dropdown="true"
-    data-menu-scrollable="true"
-    data-menu-dropdown-timeout="500"
-  >
+  <div id="m_ver_menu" class="m-aside-menu  m-aside-menu--skin-dark m-aside-menu--submenu-skin-dark m-aside-menu--dropdown "
+    data-menu-vertical="true" data-menu-dropdown="true" data-menu-scrollable="true" data-menu-dropdown-timeout="500">
     <ul class="m-menu__nav  m-menu__nav--dropdown-submenu-arrow ">
       <li class="m-menu__item  " aria-haspopup="true" routerLinkActive="m-menu__item--active" [routerLinkActiveOptions]="{ exact: true }">
-        <a routerLink="/" class="m-menu__link ">
-          <span class="m-menu__item-here"></span> <i class="m-menu__link-icon flaticon-line-graph"></i> <span class="m-menu__link-text">الصفحة الرئيسية</span>
+        <a routerLink="/home" class="m-menu__link ">
+          <span class="m-menu__item-here"></span> <i class="m-menu__link-icon flaticon-line-graph"></i> <span class="m-menu__link-text">الصفحة
+            الرئيسية</span>
         </a>
       </li>
-      <!-- Start SubMenu -->
-      <ng-container >
-        <li
-          
-          [ngClass]="inAllOrders || inAddOrder ? 'm-menu__item m-menu__item--submenu m-menu__item--active' : 'm-menu__item m-menu__item--submenu'"
-          id="ordersSub"
-          aria-haspopup="true"
-          data-menu-submenu-toggle="hover"
-        >
-          <a class="m-menu__link m-menu__toggle" (click)="toggleSubMenu('ordersSub')">
-            <i class="m-menu__ver-arrow la la-angle-right SubMenuAngle"></i> <i class="m-menu__link-icon flaticon-cart"></i> <span class="m-menu__link-text">الطلبات</span>
-          </a>
-          <div class="m-menu__submenu">
-            <span class="m-menu__arrow"></span>
-            <ul class="m-menu__subnav">
-              <li class="m-menu__item " aria-haspopup="true" routerLinkActive="m-menu__item--active" [routerLinkActiveOptions]="{ exact: true }">
-                <a routerLink="/add-order" class="m-menu__link " routerLinkActive="m-menu__item--list--active" [routerLinkActiveOptions]="{ exact: true }">
-                  <span class="m-menu__item-here"></span> <i class="m-menu__link-icon flaticon-open-box"></i> <span class="m-menu__link-text">إضافة طلب</span>
-                </a>
-              </li>
-              <li class="" [ngClass]="inAllOrders ? 'm-menu__item m-menu__item--active' : 'm-menu__item '" aria-haspopup="true">
-                <a [routerLink]="'/all-orders/page/' + ordersActiveId" class=" " [ngClass]="inAllOrders ? 'm-menu__link m-menu__item--list--active' : 'm-menu__link'">
-                  <span class="m-menu__item-here"></span> <i class="m-menu__link-icon flaticon-list"></i> <span class="m-menu__link-text">جميع الطلبات</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </li>
-      </ng-container>
-      <!-- End SubMenu -->
-      <!-- Start SubMenu -->
-      <ng-container >
-        <li
-          
-          class="m-menu__item m-menu__item--submenu"
-          id="techSub"
-          aria-haspopup="true"
-          data-menu-submenu-toggle="hover"
-          routerLinkActive="m-menu__item--active"
-          [routerLinkActiveOptions]="{ exact: true }"
-        >
-          <a class="m-menu__link m-menu__toggle" (click)="toggleSubMenu('techSub')">
-            <i class="m-menu__ver-arrow la la-angle-right SubMenuAngle"></i> <i class="m-menu__link-icon flaticon-cogwheel-1"></i> <span class="m-menu__link-text"> الفنيين </span>
-          </a>
-          <div class="m-menu__submenu">
-            <span class="m-menu__arrow"></span>
-            <ul class="m-menu__subnav">
-              <li class="m-menu__item " aria-haspopup="true" routerLinkActive="m-menu__item--active" [routerLinkActiveOptions]="{ exact: true }">
-                <a routerLink="/add-technical" class="m-menu__link " routerLinkActive="m-menu__item--list--active" [routerLinkActiveOptions]="{ exact: true }">
-                  <span class="m-menu__item-here"></span> <i class="m-menu__link-icon flaticon-open-box"></i> <span class="m-menu__link-text"> إضافة فنى </span>
-                </a>
-              </li>
-              <li [className]="pagActive ? 'm-menu__item m-menu__item--active' : 'm-menu__item'" aria-haspopup="true">
-                <a
-                  [routerLink]="'/all-technicians/page/' + dataStorageService.PageId"
-                  [className]="pagActive ? 'm-menu__link router-link-active' : 'm-menu__link'"
-                  routerLinkActive="m-menu__item--list--active"
-                  [routerLinkActiveOptions]="{ exact: true }"
-                >
-                  <span class="m-menu__item-here"></span> <i class="m-menu__link-icon flaticon-users"></i> <span class="m-menu__link-text"> جميع الفنيين </span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </li>
-      </ng-container>
-      <!-- End SubMenu -->
-      <!-- Start SubMenu -->
-      <ng-container >
-        <li
-          
-          class="m-menu__item m-menu__item--submenu"
-          id="resourcesSub"
-          aria-haspopup="true"
-          data-menu-submenu-toggle="hover"
-          routerLinkActive="m-menu__item--active"
-          [routerLinkActiveOptions]="{ exact: true }"
-        >
-          <a class="m-menu__link m-menu__toggle" (click)="toggleSubMenu('resourcesSub')">
-            <i class="m-menu__ver-arrow la la-angle-right SubMenuAngle"></i> <i class="m-menu__link-icon flaticon-interface-2"></i> <span class="m-menu__link-text"> المصادر </span>
-          </a>
-          <div class="m-menu__submenu">
-            <span class="m-menu__arrow"></span>
-            <ul class="m-menu__subnav">
-              <li class="m-menu__item " aria-haspopup="true">
-                <a routerLink="/resources/add-resource" class="m-menu__link " routerLinkActive="m-menu__item--list--active" [routerLinkActiveOptions]="{ exact: true }">
-                  <span class="m-menu__link-text SubMenuList">
-                    <span><i class="m-menu__link-bullet la la-plus-square-o"></i></span> <span>إضافة مصدر</span>
-                  </span>
-                </a>
-              </li>
-              <li class="m-menu__item " aria-haspopup="true">
-                <a routerLink="/resources" class="m-menu__link " routerLinkActive="m-menu__item--list--active" [routerLinkActiveOptions]="{ exact: true }">
-                  <span class="m-menu__link-text SubMenuList">
-                    <span><i class="m-menu__link-bullet la la-list"></i></span> <span>قائمة المصادر</span>
-                  </span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </li>
-      </ng-container>
-      <!-- End SubMenu -->
+
       <!-- Start SubMenu -->
       <ng-container>
-        <li
-          
-          [class]="clientsActive ? 'm-menu__item m-menu__item--submenu m-menu__item--active' : 'm-menu__item m-menu__item--submenu'"
-          id="clientSub"
-          aria-haspopup="true"
-          data-menu-submenu-toggle="hover"
-          routerLinkActive="m-menu__item--active"
-          [routerLinkActiveOptions]="{ exact: true }"
-        >
-          <a class="m-menu__link m-menu__toggle" (click)="toggleSubMenu('clientSub')">
-            <i class="m-menu__ver-arrow la la-angle-right SubMenuAngle"></i> <i class="m-menu__link-icon flaticon-users"></i> <span class="m-menu__link-text"> العملاء </span>
-          </a>
-          <div class="m-menu__submenu">
-            <span class="m-menu__arrow"></span>
-            <ul class="m-menu__subnav">
-              <li class="m-menu__item " aria-haspopup="true">
-                <a routerLink="/add-client" class="m-menu__link " routerLinkActive="m-menu__item--list--active">
-                  <span class="m-menu__link-text SubMenuList">
-                    <span><i class="m-menu__link-bullet la la-user-plus"></i></span> <span>إضافة عميل</span>
-                  </span>
-                </a>
-              </li>
-              <li [className]="clientsActive ? 'm-menu__item m-menu__item--active' : 'm-menu__item'" aria-haspopup="true">
-                <a [routerLink]="'/all-clients/page/' + clientsActiveId" [className]="clientsActive ? 'm-menu__link router-link-active m-menu__item--list--active' : 'm-menu__link'">
-                  <span class="m-menu__link-text SubMenuList">
-                    <span><i class="m-menu__link-bullet la la-list"></i></span> <span>كل العملاء</span>
-                  </span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </li>
-      </ng-container>
-      <!-- End SubMenu -->
-      <!-- Start SubMenu -->
-      <ng-container>
-        <li
-          
-          class="m-menu__item m-menu__item--submenu"
-          id="offersSub"
-          aria-haspopup="true"
-          data-menu-submenu-toggle="hover"
-          routerLinkActive="m-menu__item--active"
-          [routerLinkActiveOptions]="{ exact: true }"
-        >
-          <a class="m-menu__link m-menu__toggle" (click)="toggleSubMenu('offersSub')">
-            <i class="m-menu__ver-arrow la la-angle-right SubMenuAngle"></i> <i class="m-menu__link-icon flaticon-cogwheel-1"></i> <span class="m-menu__link-text">العروض</span>
-          </a>
-          <div class="m-menu__submenu">
-            <span class="m-menu__arrow"></span>
-            <ul class="m-menu__subnav">
-              <li class="m-menu__item " aria-haspopup="true" routerLinkActive="m-menu__item--active" [routerLinkActiveOptions]="{ exact: true }">
-                <a routerLink="/add-offer" class="m-menu__link " routerLinkActive="m-menu__item--list--active" [routerLinkActiveOptions]="{ exact: true }">
-                  <span class="m-menu__item-here"></span> <i class="m-menu__link-icon flaticon-open-box"></i> <span class="m-menu__link-text">إضافة عرض</span>
-                </a>
-              </li>
-              <li class="m-menu__item " aria-haspopup="true" routerLinkActive="m-menu__item--active" [routerLinkActiveOptions]="{ exact: true }">
-                <a [routerLink]="'/all-offers/page/' + offersActiveId" class="m-menu__link " routerLinkActive="m-menu__item--list--active" [routerLinkActiveOptions]="{ exact: true }">
-                  <span class="m-menu__item-here"></span> <i class="m-menu__link-icon flaticon-open-box"></i> <span class="m-menu__link-text">جميع العروض</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </li>
-      </ng-container>
-      <!-- End SubMenu -->
-      <!-- Start SubMenu -->
-      <ng-container>
-        <li  class="m-menu__item  " aria-haspopup="true" routerLinkActive="m-menu__item--active" [routerLinkActiveOptions]="{ exact: true }">
-          <a routerLink="/services" class="m-menu__link ">
-            <span class="m-menu__item-here"></span> <i class="m-menu__link-icon flaticon-music-2"></i> <span class="m-menu__link-text">الخدمات</span>
+        <li class="m-menu__item  " aria-haspopup="true" routerLinkActive="m-menu__item--active"
+          [routerLinkActiveOptions]="{ exact: true }">
+          <a routerLink="/maingroups" class="m-menu__link ">
+            <span class="m-menu__item-here"></span> <i class="m-menu__link-icon flaticon-music-2"></i> <span class="m-menu__link-text">المجموعات
+              الرئيسية</span>
           </a>
         </li>
       </ng-container>

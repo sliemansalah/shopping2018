@@ -133,3 +133,35 @@
     0%, 39%, 100% { opacity: 0; }
     40% { opacity: 1; } 
   }
+
+
+/* Extra small devices */
+@media(max-width:544px){
+span,i{
+  font-size:14px;
+  }
+}
+/* Small devices */
+@media(min-width:544px){
+  span,i{
+      font-size:18px;
+  }
+}
+/* Medium devices */
+@media(min-width:768px){
+  span,i{
+      font-size:22px;
+  }
+}
+/* Large devices */
+@media(min-width:992px){
+  span,i{
+      font-size:24px;
+  }
+}
+/* Exrta Large devices */
+@media(min-width:1200px){
+  span,i{
+      font-size:26px;
+  }
+}

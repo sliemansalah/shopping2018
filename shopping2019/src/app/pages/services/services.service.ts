@@ -1,28 +1,34 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { MainProvider } from "../../shared/headers";
-
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 @Injectable()
 export class ServicesService {
-  constructor(private httpClient: HttpClient) {}
-  // Store Main Service
-  storeMainService(service) {
-    return this.httpClient.post(MainProvider.baseUrl + "services.json", service, { headers: MainProvider.getHttpHeader() });
+  httpOptions: { headers: HttpHeaders; };
+  private url = 'https://bitymall.com/api/';
+  constructor(private http: HttpClient) {
   }
-  // Store Main Service
-  // Get Main Service
-  getMainService() {
-    return this.httpClient.get(MainProvider.baseUrl + "services.json", { headers: MainProvider.getHttpHeader() });
+  getProducts() {
+    return this.http.get(this.url + "product", this.httpOptions).map((data) => {
+      return data;
+    });
   }
-  // Get Main Service
-  // Delete Service
-  deleteService(id) {
-    return this.httpClient.delete(MainProvider.baseUrl + "services/" + id, { headers: MainProvider.getHttpHeader() });
+  getcompany() {
+    return this.http.get(this.url + "company", this.httpOptions).map((data) => {
+      return data;
+    });
   }
-  // Delete Service
-  // Update Main Service
-  updateMainService(id, data) {
-    return this.httpClient.put(MainProvider.baseUrl + "services/" + id, data, { headers: MainProvider.getHttpHeader() });
+  getunit() {
+    return this.http.get(this.url + "unit", this.httpOptions).map((data) => {
+      return data;
+    });
   }
-  // Update Main Service
+  getMaingroups() {
+    return this.http.get(this.url + "maingroup", this.httpOptions).map((data) => {
+      return data;
+    });
+  }
+  getsubgroups() {
+    return this.http.get(this.url + "subgroup", this.httpOptions).map((data) => {
+      return data;
+    });
+  }
 }

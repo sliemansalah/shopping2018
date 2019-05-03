@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../guards/auth.service';
 import { trigger, style, animate, transition } from '@angular/animations';
 import * as $ from 'jquery';
 
@@ -19,7 +18,7 @@ import * as $ from 'jquery';
 export class HeaderComponent implements OnInit {
   imageMenu = false;
   noteMenu = false;
-  constructor(private authService: AuthService) { }
+  constructor() { }
 
   ngOnInit() {
     $(document).ready(function () {
@@ -31,9 +30,6 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  logOut() {
-    this.authService.logout();
-  }
   closeSlides() {
     console.log('out');
     if (this.imageMenu === true) {
